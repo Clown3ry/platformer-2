@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermovement : MonoBehaviour
+public class Playermovement : MonoBehaviour
 {
     //variables for the game
     float Speed;        //determines move speed
@@ -33,7 +33,7 @@ public class playermovement : MonoBehaviour
         rb.velocity = new Vector2(Speed * move, rb.velocity.y); //move on the x axis(left or right)
 
         //single jump limit
-        if (Input.GetKey(KeyCode.W) && !isJumping)        //when the unity jump keybind is pressed and if not already jumping 
+        if (Input.GetKey(KeyCode.Space) && !isJumping)        //when the unity jump keybind is pressed and if not already jumping 
         {
             Debug.Log("jump");
           rb.AddForce(new Vector2(rb.velocity.x, jump));    //jump
@@ -44,7 +44,7 @@ public class playermovement : MonoBehaviour
     // Called when a Collision is detected
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))    //if the other object is tag as ground
+        if (other.gameObject.CompareTag("ground"))    //if the other object is tag as ground
         {
             isJumping = false;                  //set jumping to false
         }

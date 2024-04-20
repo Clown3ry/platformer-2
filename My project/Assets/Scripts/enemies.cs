@@ -6,7 +6,7 @@ using UnityEngine;
 public class enemies : MonoBehaviour
 {
     //variables for the game
-    health damage;
+    Health damage;
 
     public GameObject hitPoints;
 
@@ -18,12 +18,24 @@ public class enemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = hitPoints.GetComponent<health>();
+        damage = hitPoints.GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.tag == "spike" && left)
+        {
+            transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+        }
+        else if (gameObject.tag == "spike" && left)
+        {
+            transform.position = new Vector2(transform.position.x + speed, transform.position.y);
+        }
+        if (gameObject.tag =="Fly")
+        {
+            Distance = Vector2.Distance(transform.position, Playermovement.transform.position);
+        }
         if (left)
         {
             transform.position = new Vector2(transform.position.x - speed, transform.position.y);

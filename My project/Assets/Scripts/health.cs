@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class health : MonoBehaviour
+public class Health : MonoBehaviour
 {
     //variables for the game
     public int maxHealth;       //determines max amount of health the player can have
     public int currentHeath;    //tracks current health of the player
 
     public GameObject hp1;
-    public GameObject hp2;
         
 
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 2;              //set max health to 2
+        maxHealth = 1;            //set max health to 1
         currentHeath = maxHealth;   //set current health to max health
     }
 
@@ -25,10 +24,7 @@ public class health : MonoBehaviour
     {
         currentHeath -= amount;                 //lower health
 
-        if(currentHeath == 2)
-        {
-            hp2.SetActive(false);
-        }
+   
         if (currentHeath == 1) 
         {
           hp1.SetActive(false);
